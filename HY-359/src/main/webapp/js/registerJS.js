@@ -257,7 +257,7 @@ function loginPOST() {
 			errorAlert('Request failed. Returned status of ' + xhr.status);
 		}
 	};
-	xhr.open('POST', 'MainServlet');
+	xhr.open('POST', 'Register');
 	xhr.setRequestHeader("Content-type", "application/json");
 	xhr.send(jsonData);
 }

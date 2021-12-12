@@ -15,8 +15,8 @@ import csd4149.mainClasses.JSON_Converter;
 import csd4149.mainClasses.SimpleUser;
 import csd4149.mainClasses.User;
 
-public class MainServlet extends HttpServlet {
-    public MainServlet() {
+public class Register extends HttpServlet {
+    public Register() {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
