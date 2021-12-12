@@ -161,6 +161,20 @@ public class EditSimpleUserTable {
             Logger.getLogger(EditSimpleUserTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+	public boolean userExists(String username, String password) {
+		try {
+			Connection con = DB_Connection.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs;
+			rs = stmt.executeQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password+"'");
+			return rs.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	public boolean usernameExists(String username) {
 		try {
 			Connection con = DB_Connection.getConnection();

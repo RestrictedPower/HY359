@@ -10,8 +10,38 @@
   	<description></description>
   	<servlet-class>csd4149.MainServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Handler</servlet-name>
+  	<display-name>Handler</display-name>
+  	<description></description>
+  	<servlet-class>Handler</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>csd4149.Login</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>csd4149.Logout</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MainServlet</servlet-name>
   	<url-pattern>/MainServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Handler</servlet-name>
+  	<url-pattern>/Handler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 </web-app>

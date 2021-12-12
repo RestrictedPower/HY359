@@ -211,7 +211,7 @@ function errorAlert(txt) {
 	});
 }
 
-function submitForm() {
+function loginPOST() {
 	if (!validPassword) {
 		errorAlert("Passwords don't match!");
 		return;

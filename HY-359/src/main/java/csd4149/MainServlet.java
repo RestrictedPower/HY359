@@ -16,13 +16,10 @@ import csd4149.mainClasses.SimpleUser;
 import csd4149.mainClasses.User;
 
 public class MainServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
     public MainServlet() {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 	}
 	
@@ -36,6 +33,7 @@ public class MainServlet extends HttpServlet {
 		if(edt.usernameExists(user.getUsername())) val = "Username";
 		return val;
 	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String json = JSON_Converter.getJSONFromAjax(request.getReader());
 		boolean isDoc = json.contains("\"userType\":\"Doctor\"");
