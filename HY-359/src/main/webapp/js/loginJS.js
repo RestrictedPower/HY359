@@ -9,11 +9,10 @@ function errorAlert(txt) {
 function loginPOST() {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-		const responseData = JSON.parse(xhr.responseText);
         if (xhr.readyState === 4 && xhr.status === 200) {
-			console.log("Successfull login");
 			window.location.href = '/HY-359/usermanagement.html';
         } else if (xhr.status !== 200) {
+			const responseData = JSON.parse(xhr.responseText);
 			if (xhr.status === 403) {
 				errorAlert(responseData['error']);
 				return;

@@ -1,12 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Konstantinos Anemozalis - CSD4149</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="Kosta's Form.">
 	<meta name="keywords" content="HTML, CSS, JavaScript">
 	<meta name="author" content="Konstantinos Anemozalis">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/userManagementStyle.css">
 	
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="js/usermanagementJs.js"></script>
@@ -28,10 +27,24 @@
 				window.location.href = '/HY-359/login.html';
 	        }
 	    };
-	    xhr.open('GET', 'Login');
+	    xhr.open('GET', 'Login',false);
 	    xhr.send();
 	</script>
 	<button class="btn btn-primary" type="button" onclick="logoutPOST();">Logout</button>
-	 <h1>status view</h1>
+	
+	
+	
+	<div class="row">
+		<div class="col-md-3">
+			<input type="text" class="form-control" id="emailField" value="name" readonly>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-3">
+			<input type="text" class="form-control" id="nameField" value="email" readonly>
+		</div>
+		<button type="button" class="col-md-3 btn btn-primary"  onclick="update('email');">Update Email</button>
+	</div>
 </body>
  

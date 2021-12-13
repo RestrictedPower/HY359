@@ -7,30 +7,6 @@ function errorAlert(txt) {
 }
 
 function logoutPOST() {
-	/*
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-		const responseData = JSON.parse(xhr.responseText);
-        if (xhr.readyState === 4 && xhr.status === 200) {
-			console.log("Successfull login");
-			window.location.href = '/HY-359/usermanagement.html';
-        } else if (xhr.status !== 200) {
-			if (xhr.status === 403) {
-				errorAlert(responseData['error']);
-				return;
-			}
-			errorAlert('Request failed. Returned status of ' + xhr.status);
-        }
-    };
-	let myForm = document.getElementById('loginForm');
-	let formData = new FormData(myForm);
-	const data = {};
-	formData.forEach((value, key) => (data[key] = value));
-	var jsonData = JSON.stringify(data);
-    xhr.open('POST', 'Login');
-    xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send(jsonData);
-*/
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -41,4 +17,32 @@ function logoutPOST() {
     xhr.open('POST', 'Logout');
     xhr.setRequestHeader('Content-type','application/json');
     xhr.send();
+}
+
+
+function askInput(t, callback){
+	    	Swal.fire({
+			    title: t,
+			    input: 'text',
+			    showCancelButton: true        
+			}).then((result) => {
+		   	 	if (result.value) callback(result.value);
+			});
+}
+
+function update(type){
+	askInput("Enter new "+type+":", function(result){
+		var xhr = new XMLHttpRequest();
+		xhr.open("PUT", "UserManagement");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function () {
+		   if (xhr.readyState === 4) {
+		      console.log("ok?");
+		   };
+		}
+		var data = {};
+		data[type] = result;
+		var jsonData = JSON.stringify(data);
+		xhr.send(jsonData);
+	});
 }

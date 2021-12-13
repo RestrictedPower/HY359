@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>csd4149.Logout</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UserManagement</servlet-name>
+  	<display-name>UserManagement</display-name>
+  	<description></description>
+  	<servlet-class>csd4149.UserManagement</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MainServlet</servlet-name>
   	<url-pattern>/MainServlet</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
   	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserManagement</servlet-name>
+  	<url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
 </web-app>
