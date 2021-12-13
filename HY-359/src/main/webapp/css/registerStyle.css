@@ -9,7 +9,6 @@ form{
 }
 #pwMissmatch{
   color: red;
-  
 }
 .form-elem{
   margin-top: 10px;
@@ -32,6 +31,7 @@ input[type=checkbox]
   padding: 10px;
   margin-right: 10px;
 }
+
 .checkboxtext{
   font-size: 110%;
   display: inline;
