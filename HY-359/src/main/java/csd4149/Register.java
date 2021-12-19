@@ -15,15 +15,16 @@ import csd4149.mainClasses.JSON_Converter;
 import csd4149.mainClasses.SimpleUser;
 import csd4149.mainClasses.User;
 
+/**
+ * Servlet implementation class Register
+ */
 public class Register extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
     public Register() {
         super();
     }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-	
-	public static String getVal(EditSimpleUserTable eut, EditDoctorTable edt, User user) {
+    public static String getVal(EditSimpleUserTable eut, EditDoctorTable edt, User user) {
 		String val = null;
 		if(eut.amkaExists(user.getAmka())) val = "AMKA";
 		if(eut.emailExists(user.getEmail())) val = "Email";
@@ -34,6 +35,7 @@ public class Register extends HttpServlet {
 		return val;
 	}
 	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String json = JSON_Converter.getJSONFromAjax(request.getReader());
 		boolean isDoc = json.contains("\"userType\":\"Doctor\"");
@@ -73,9 +75,11 @@ public class Register extends HttpServlet {
 					response.getWriter().write(jo.toString());
 				}
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			response.setStatus(403);           
+			JsonObject jo = new JsonObject();
+            jo.addProperty("error", "Database error!");
+			response.getWriter().write(jo.toString());
 		}
 	}
-
 }

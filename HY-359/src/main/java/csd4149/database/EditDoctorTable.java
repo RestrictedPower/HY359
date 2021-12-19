@@ -87,7 +87,29 @@ public class EditDoctorTable {
         }
         return null;
     }
+    
+    public ArrayList<Doctor> databaseToCertifiedDoctors() throws SQLException, ClassNotFoundException {
+        Connection con = DB_Connection.getConnection();
+        Statement stmt = con.createStatement();
+        ArrayList<Doctor> doctors=new ArrayList<Doctor>();
+        ResultSet rs;
+        try {
+            rs = stmt.executeQuery("SELECT * FROM doctors where certified=1");
+            while (rs.next()) {
+                String json = DB_Connection.getResultsToJSON(rs);
+                Gson gson = new Gson();
+                Doctor doc = gson.fromJson(json, Doctor.class);
+                doctors.add(doc);
+            }
+            return doctors;
 
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+    
     public String databaseToJSON(String username, String password) throws SQLException, ClassNotFoundException {
         Connection con = DB_Connection.getConnection();
         Statement stmt = con.createStatement();

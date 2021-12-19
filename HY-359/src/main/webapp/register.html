@@ -19,13 +19,13 @@
 </head>
 <body>
 	<div id="formDiv">
-		<form id="mainForm" onsubmit='submitForm(); return false;'>
+		<form id="mainForm" onsubmit='registerPOST(); return false;'>
 			<h2>Please complete the following form:</h2>
 			<!-- Username -->
 			<!-- <div class="form-group form-elem"> -->
 			<input type="text" name="username" id="inputUsername"
 				class="form-control" placeholder="Username" pattern="[a-zA-Z]{8,}"
-				title="Username must contain at least 8 english characters.">
+				title="Username must contain at least 8 english characters." required>
 			<!-- </div> -->
 
 			<!-- Email -->
@@ -33,7 +33,7 @@
 				<input type="email" name="email" id="inputEmail"
 					class="form-control" placeholder="Email"
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-					title="Invalid Email address!">
+					title="Invalid Email address!" required>
 			</div>
 
 			<!-- Password -->
@@ -44,7 +44,7 @@
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$"
 						onchange="validatePassword();displaySecurity();"
 						onkeyup="validatePassword();displaySecurity();"
-						title="Must contain at least one number and one uppercase, one lowercase letter, one special character and be between 8 and 15 characters.">
+						title="Must contain at least one number and one uppercase, one lowercase letter, one special character and be between 8 and 15 characters." required>
 				</div>
 				<div class="col-md-3" id="checkboxShowPwCent">
 					<input type="checkbox" id="pwCheckBox"
@@ -77,20 +77,20 @@
 			<div class="form-group form-elem">
 				<input type="text" name="firstname" id="inputName"
 					class="form-control" placeholder="Name" pattern="^.{3,30}$"
-					title="Username must contain between 3 and 30 characters.">
+					title="Username must contain between 3 and 30 characters." required>
 			</div>
 
 			<!-- Surname -->
 			<div class="form-group form-elem">
 				<input type="text" name="lastname" id="inputSurname"
 					class="form-control" placeholder="Surname" pattern="^.{3,30}$"
-					title="Surname must contain between 3 and 30 characters.">
+					title="Surname must contain between 3 and 30 characters." required>
 			</div>
 
 			<!-- Birthday -->
 			<div class="form-group form-elem">
 				<input type="date" name="birthdate" id="inputBirthday" onchange="validateAmkaDate();"
-					value="1980-01-01" min="1920-01-01" max="2005-12-31">
+					value="1980-01-01" min="1920-01-01" max="2005-12-31" required>
 			</div>
 
 			<!-- Sex -->
@@ -120,7 +120,7 @@
 				<input type="text" name="amka" id="inputAMKA" class="form-control"
 					placeholder="AMKA" pattern="^[0-9]{11,11}$"
 					onchange="validateAmkaDate();" onkeyup="validateAmkaDate();"
-					title="AMKA must be an 11 character string that contains only numbers!">
+					title="AMKA must be an 11 character string that contains only numbers!" required>
 			</div>
 
 			<!-- Country -->
@@ -385,14 +385,14 @@
 			<div class="form-group form-elem">
 				<input type="text" name="city" id="inputCity" class="form-control"
 					placeholder="City" pattern="^.{3,50}$"
-					title="City must contain between 3 and 50 characters.">
+					title="City must contain between 3 and 50 characters." required>
 			</div>
 
 			<!-- Address -->
 			<div class="form-group form-elem">
 				<input type="text" name="address" id="inputAddress"
 					class="form-control" placeholder="Address" pattern="^.{5,50}$"
-					title="Address must contain between 5 and 50 characters.">
+					title="Address must contain between 5 and 50 characters." required>
 			</div>
 
 			<!-- Find location button -->
@@ -415,7 +415,7 @@
 			<div class="form-group form-elem">
 				<input type="text" name="telephone" id="inputPhone"
 					class="form-control" placeholder="Phone" pattern="^[0-9]{0,14}$"
-					title="Phone must be an integer of 14 characters max!">
+					title="Phone must be an integer of 14 characters max!" required>
 			</div>
 
 
@@ -423,14 +423,14 @@
 			<div class="form-group form-elem">
 				<input type="number" name="height" id="inputHeight"
 					class="form-control" placeholder="Height (in cm)" min="100"
-					max="250" title="Height must be an integer between 100-250!">
+					max="250" title="Height must be an integer between 100-250!" required>
 			</div>
 
 			<!-- Weight -->
 			<div class="form-group form-elem">
 				<input type="number" name="weight" id="inputWeight"
 					class="form-control" placeholder="Weight (in kg)" min="20"
-					max="300" title="Weight must be an integer between 20-300!">
+					max="300" title="Weight must be an integer between 20-300!" required>
 			</div>
 
 			<!-- Donor -->
@@ -470,7 +470,7 @@
 			<!-- Terms Checkbox -->
 			<div class="form-group">
 				<p>
-					<input type="checkbox" id="inputCheckbox"> I accept the <u>Terms
+					<input type="checkbox" id="inputCheckbox" required> I accept the <u>Terms
 						and Conditions</u>
 				</p>
 			</div>

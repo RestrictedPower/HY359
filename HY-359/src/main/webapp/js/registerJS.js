@@ -211,7 +211,8 @@ function errorAlert(txt) {
 	});
 }
 
-function loginPOST() {
+function registerPOST() {
+	console.log("da");
 	if (!validPassword) {
 		errorAlert("Passwords don't match!");
 		return;
@@ -240,9 +241,7 @@ function loginPOST() {
 	data['lat'] = locInfo[0];
 	data['lon'] = locInfo[1];
 
-
-
-	var jsonData = JSON.stringify(data);
+	var jsonData = JSON.stringify(data);	
 
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function() {
@@ -250,6 +249,7 @@ function loginPOST() {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 			Swal.fire('Success!', responseData['success'], 'success');
 		} else if (xhr.status !== 200) {
+			
 			if (xhr.status === 403) {
 				errorAlert(responseData['error']);
 				return;
